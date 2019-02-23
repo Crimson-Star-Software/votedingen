@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     path('', include('voting.urls')),
     path('', include(router.urls)),
+
 ]
