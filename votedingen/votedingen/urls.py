@@ -18,16 +18,16 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from .views import UserViewSet
+from .views import UserViewSet, HomeView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^invitations/', include('invitations.urls', namespace='invitations')),
     url(r'^api-auth/', include('rest_framework.urls')),
     path('', include('voting.urls')),
-    path('', include(router.urls)),
-
+    path('users/', include(router.urls)),
+    url(r'^accounts/', include('allauth.urls')),
+    path('', HomeView.as_view(), name="home"),
 ]
