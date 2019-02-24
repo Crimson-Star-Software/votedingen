@@ -1,5 +1,5 @@
-from .models import Candidate, Election
-from .serializers import CandidateSerializer, ElectionSerializer
+from .models import Candidate, Election, Voter
+from .serializers import CandidateSerializer, ElectionSerializer, VoterSerializer
 from rest_framework import generics
 
 class ElectionCreate(generics.ListCreateAPIView):
@@ -40,3 +40,23 @@ class CandidateUpdate(generics.UpdateAPIView):
 class CandidateDelete(generics.DestroyAPIView):
     queryset = Candidate.objects.all()
     serializer_class = CandidateSerializer
+
+
+class VoterCreate(generics.ListCreateAPIView):
+    queryset = Voter.objects.all()
+    serializer_class = VoterSerializer
+
+
+class VoterRead(generics.RetrieveAPIView):
+    queryset = Voter.objects.all()
+    serializer_class = VoterSerializer
+
+
+class VoterUpdate(generics.UpdateAPIView):
+    queryset = Voter.objects.all()
+    serializer_class = VoterSerializer
+
+
+class VoterDelete(generics.DestroyAPIView):
+    queryset = Voter.objects.all()
+    serializer_class = VoterSerializer
