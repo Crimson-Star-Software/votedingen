@@ -1,3 +1,4 @@
+
 """
 Django settings for votedingen project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = '=tl&v4zqh&j8@*ab&ek*)u1k21*5p&$z6j*)f3jpsc&==sflb%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-18-216-98-69.us-east-2.compute.amazonaws.com']
 
 
 # Application definition
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -125,6 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
